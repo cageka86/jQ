@@ -37,7 +37,7 @@ jQuery.fn.extend({
     copyEventsTo: function(to) {
         jQuery.event.copy(this, to);
         return this;
-    },
+    }
 });
 
 // base for copying events (tested for jq 1.4.2 and 1.9)
