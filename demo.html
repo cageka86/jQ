@@ -41,16 +41,16 @@ below example of initiation:
                 item: '.item',
                 pagination: '#content .paginator',
                 next: '.pagination_next',
-                loader: '<img src="/js/ajax-scroll/images/ajax-loader.gif"/>',
+                loader: '< img src="imgsrc"/>',
                 triggerPageThreshold: 4,
-                trigger : 'Показать еще',
+                trigger : 'Show other',
                 thresholdMargin : -100,
                 history : false,
                 loaderDelay : 10,
                 onRenderComplete: function(items) {
-                  for(var i = 0; i<items.length; i++){
+                  $.each(items, function(i, v){
                     $(items[i]).cloneEvents('.good:eq(1)');
-                  }
+                  });
                 }
             });
 </pre>
