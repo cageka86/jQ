@@ -1,0 +1,25 @@
+<html>
+<head>
+<script type="text/javascript" src="jquery.min.js"></script>
+<script type="text/javascript" src="jquery-events.js"></script>
+<script type="text/javascript">
+function a(){
+$('<div>test2</div>').copyEvents('.a').prependTo('span');
+}
+$(document).ready(function(){
+$('.a').bind({click : function(){alert('common')} });
+});
+</script>
+
+</head>
+<body>
+<b>this plugin copies only events binded with jQuery</b>
+<div>Here is div test1. It has onclick and onmouseover attribute.</div>
+<hr/>
+<button onclick="a();">Create test2 and copy events</button>
+<hr/>
+<div onmouseover="this.style.color = 'red';"  class="a" onclick="alert('test1');">test1</div>
+<span></span>
+<hr/>After create test2 click by (and also set mouse over) both test elements
+</body>
+</html>
