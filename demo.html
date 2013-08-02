@@ -32,5 +32,28 @@ width: 50px;
 <div onmouseover="this.style.color = 'red';"  class="a" onclick="alert('test1');">test1 <div class="inner"></div></div>
 <span></span>
 <hr/>After create test2 click by (and also set mouse over) both test elements
+<hr/>
+It could be usefull with infinite-ajax-scroll (copying all event handlers from a pattern item) (https://github.com/webcreate/infinite-ajax-scroll)<br/>
+below example of initiation:
+<pre>
+            jQuery.ias({
+                container : '.items',
+                item: '.item',
+                pagination: '#content .paginator',
+                next: '.pagination_next',
+                loader: '<img src="/js/ajax-scroll/images/ajax-loader.gif"/>',
+                triggerPageThreshold: 4,
+                trigger : 'Показать еще',
+                thresholdMargin : -100,
+                history : false,
+                loaderDelay : 10,
+                onRenderComplete: function(items) {
+                  for(var i = 0; i<items.length; i++){
+                    $(items[i]).cloneEvents('.good:eq(1)');
+                  }
+                }
+            });
+</pre>
+
 </body>
 </html>
