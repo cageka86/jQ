@@ -4,21 +4,32 @@
 <script type="text/javascript" src="jquery-events.js"></script>
 <script type="text/javascript">
 function a(){
-$('<div>test2</div>').copyEvents('.a').prependTo('span');
+$('<div class="b">test2 <div class="inner"></div></div>').cloneEvents('.a').prependTo('span');
 }
 $(document).ready(function(){
 $('.a').bind({click : function(){alert('common')} });
+$('.inner').bind({mouseover: function(){$(this).css('background', 'green');}, mouseout :function(){$(this).css('background', 'black');} });
 });
 </script>
-
+<style>
+.inner{
+width: 30px;
+height: 10px;
+background: black;
+}
+.a, .b {
+border: 1px solid blue;
+width: 50px;
+}
+</style>
 </head>
 <body>
 <b>this plugin copies only events binded with jQuery</b>
 <div>Here is div test1. It has onclick and onmouseover attribute.</div>
 <hr/>
-<button onclick="a();">Create test2 and copy events</button>
+<button onclick="a();">Create test2 and copy events</button></div>
 <hr/>
-<div onmouseover="this.style.color = 'red';"  class="a" onclick="alert('test1');">test1</div>
+<div onmouseover="this.style.color = 'red';"  class="a" onclick="alert('test1');">test1 <div class="inner"></div></div>
 <span></span>
 <hr/>After create test2 click by (and also set mouse over) both test elements
 </body>
