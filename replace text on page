@@ -1,0 +1,19 @@
+// fast script for immediately replacement of some word (or phrase) on a html page 
+// could be put at the footer
+// example of usage: A/B tests for users who come from Google by some keyword
+
+function repl($0){
+ if($0[0] == 'B') {
+  if($0[1] == 'A') {
+   return 'CART';
+  }
+  return 'Cart';
+ }
+ return 'cart';
+}
+
+$("html").find('title,h1,h2,p,div,span,b,i,li,a').contents().each(function(){
+  if(this.nodeType === 3 && (this.data.indexOf('BASKET') !== -1 || this.data.indexOf('Basket') !== -1 || this.data.indexOf('basket') !== -1)) {
+   this.nodeValue = this.data.replace(/basket/gi, repl);
+  }
+});
